@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
+fmt=$1
+tz=$2
 
-date "$@"
+[ -z "$tz" ] && tz=UTC
+
+TZ=$tz date "$fmt"
