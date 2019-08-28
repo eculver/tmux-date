@@ -2,8 +2,6 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-COMMON_FMT='+%%H:%%M %%Z'
-
 source "$CURRENT_DIR/scripts/helpers.sh"
 
 # TODO: generate these based on /usr/share/zoneinfo
@@ -15,9 +13,9 @@ date_interpolation=(
 
 # TODO: same thing, generate these based on /usr/share/zoneinfo
 date_commands=(
-	"#($CURRENT_DIR/scripts/date.sh $COMMON_FMT)"
-	"#($CURRENT_DIR/scripts/date.sh $COMMON_FMT 'Europe/Madrid')"
-	"#($CURRENT_DIR/scripts/date.sh $COMMON_FMT 'America/Los_Angeles')"
+	"#($CURRENT_DIR/scripts/date.sh '+%%H:%%M %%Z' 'UTC')"
+	"#($CURRENT_DIR/scripts/date.sh '+%%H:%%M %%Z' 'Europe/Madrid')"
+	"#($CURRENT_DIR/scripts/date.sh '+%%H:%%M %%Z' 'America/Los_Angeles')"
 )
 
 set_tmux_option() {
